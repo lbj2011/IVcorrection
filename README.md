@@ -2,6 +2,8 @@
 
 <img src="https://github.com/lbj2011/IVcorrection/blob/main/doc_img/ivcorrection_logo.png" width="500"/>
 
+[![PyPI release](https://img.shields.io/pypi/v/ivcorrection.svg)](https://pypi.org/project/ivcorrection//)
+
 This package provides the following purposes:
  - Calculate IV curve correction coefficients based on IEC 60891:2021 standard
  - Perform IV curve correction

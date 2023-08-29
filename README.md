@@ -1,6 +1,7 @@
 # IV curve correction tools (IVcorrection)
 
 <img src="https://github.com/lbj2011/IVcorrection/blob/main/doc_img/ivcorrection_logo.png" width="500"/>
+[![DOI](https://zenodo.org/badge/681861201.svg)](https://zenodo.org/badge/latestdoi/681861201)
 
 [![PyPI release](https://img.shields.io/pypi/v/ivcorrection.svg)](https://pypi.org/project/ivcorrection//)
 

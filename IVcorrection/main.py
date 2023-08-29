@@ -1004,7 +1004,7 @@ def plot_iv_corrected (ivcurves : dict,
 
     plt.rcParams.update({'font.size': 15})
     _, ax = plt.subplots(figsize = [6,4])
-    # ax.grid()
+    ax.grid()
 
     allG = np.array(ivcurves['G'])
     nIV = allG.size
@@ -1026,14 +1026,14 @@ def plot_iv_corrected (ivcurves : dict,
     if ymax:
         ax.set_ylim([0, ymax])
 
-    # if iv_ref is not None:
-    #     v_ref = iv_ref['v'][0]
-    #     i_ref = iv_ref['i'][0]
-    #     if plot_ref:
-    #         ax.plot(v_ref, i_ref, '--', color = 'black', linewidth = 1.5, label = 'Ref')
-    #     if errorshow:
-    #         area_err = calc_correction_error(ivcurves, iv_ref)
-    #         ax.text(1, 3, 'Area error: {:.2f}%'.format(np.nanmean(area_err)))
+    if iv_ref is not None:
+        v_ref = iv_ref['v'][0]
+        i_ref = iv_ref['i'][0]
+        if plot_ref:
+            ax.plot(v_ref, i_ref, '--', color = 'black', linewidth = 1.5, label = 'Ref')
+        if errorshow:
+            area_err = calc_correction_error(ivcurves, iv_ref)
+            ax.text(1, 3, 'Area error: {:.2f}%'.format(np.nanmean(area_err)))
 
     # Show colorbar when more than 1 curves are corrected
     if nIV > 1:
@@ -1054,7 +1054,7 @@ def plot_iv_corrected (ivcurves : dict,
     ax.set_xlabel('Voltage (V)')
     ax.set_ylabel('Current (A)')
     ax.set_title('I-V curves', fontweight = 'bold')
-    # ax.legend(loc=3)  
+    ax.legend(loc=3)  
         
 def plot_iv_corrected_quad (iv1 : dict, 
                             iv2 : dict, 
@@ -1188,7 +1188,7 @@ def plot_iv_raw(ivcurves : dict,
 
     plt.rcParams.update({'font.size': 15})
     _, ax = plt.subplots(figsize = [6,4])
-    # ax.grid()
+    ax.grid()
 
     allG = np.array(ivcurves['G'])
     nIV = allG.size

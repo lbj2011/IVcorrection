@@ -12,7 +12,7 @@ This package provides the following purposes:
 
 **The package is still under active development and plan to be integrated with [pvlib](https://github.com/pvlib/pvlib-python).**
  
-**If there is any problem, please feel free to [contact us](baojieli@lbl.gov)!**
+**If there is any problem, please feel free to [contact us](mailto:baojieli@lbl.gov)!**
 
 ## Installation
 

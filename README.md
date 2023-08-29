@@ -14,6 +14,13 @@ This package provides the following purposes:
  
 **If there is any problem, please feel free to [contact us](baojieli@lbl.gov)!**
 
+## Installation
+
+- Install with pip
+```
+pip install ivcorrection
+```
+
 ## What is I-V curve correction
 I-V curve correction refers to correct the I-V curve measured under different environmental condition to an identical one. Generally, the standard test condition (STC) is adopted as the target condition.
 

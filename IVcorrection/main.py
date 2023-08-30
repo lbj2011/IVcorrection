@@ -65,6 +65,12 @@ def simu_IV_curve(G : Union[list, float],
 
     """
 
+    if (not isinstance(G, list)) & (not isinstance(G, np.ndarray)):
+        G = [G]
+    
+    if (not isinstance(T, list)) & (not isinstance(T, np.ndarray)):
+        T = [T]
+    
     G = np.array(G)
     T = np.array(T)
 
@@ -105,15 +111,9 @@ def simu_IV_curve(G : Union[list, float],
 
     nIV = G.size
 
-    if nIV > 1:
-        for i in range(nIV):
-            alli[i] = out['i'][i]
-            allv[i] = out['v'][i]
-
-    elif nIV == 1:
-        alli = out['i']
-        allv = out['v']
-        
+    for i in range(nIV):
+        alli[i] = out['i'][i]
+        allv[i] = out['v'][i]
 
     ivcurves['G'] = G
     ivcurves['T'] = T
@@ -166,16 +166,10 @@ def get_corrected_IV_P1 (iv_initial : dict,
     nIV = np.array(iv_initial['G']).size
                     
     for n in range(nIV):
-        if nIV > 1:
-            i = iv_initial['i'][n]
-            v = iv_initial['v'][n]
-            G = iv_initial['G'][n]
-            T = iv_initial['T'][n]
-        else:
-            i = iv_initial['i']
-            v = iv_initial['v']
-            G = iv_initial['G']
-            T = iv_initial['T']
+        i = iv_initial['i'][n]
+        v = iv_initial['v'][n]
+        G = iv_initial['G'][n]
+        T = iv_initial['T'][n]
 
         isc = np.max(i)
 
@@ -243,17 +237,10 @@ def get_corrected_IV_P2 (iv_initial : dict,
     nIV = np.array(iv_initial['G']).size
                     
     for n in range(nIV):
-
-        if nIV > 1:
-            i = iv_initial['i'][n]
-            v = iv_initial['v'][n]
-            G = iv_initial['G'][n]
-            T = iv_initial['T'][n]
-        else:
-            i = iv_initial['i']
-            v = iv_initial['v']
-            G = iv_initial['G']
-            T = iv_initial['T']
+        i = iv_initial['i'][n]
+        v = iv_initial['v'][n]
+        G = iv_initial['G'][n]
+        T = iv_initial['T'][n]
 
         i_corr = i*1000/G/(1 + alpha_isc_rel*(T-25))
         
@@ -317,16 +304,10 @@ def get_corrected_IV_P4 (iv_initial : dict,
                     
     for n in range(nIV):
 
-        if nIV > 1:
-            i = iv_initial['i'][n]
-            v = iv_initial['v'][n]
-            G = iv_initial['G'][n]
-            T = iv_initial['T'][n]
-        else:
-            i = iv_initial['i']
-            v = iv_initial['v']
-            G = iv_initial['G']
-            T = iv_initial['T']
+        i = iv_initial['i'][n]
+        v = iv_initial['v'][n]
+        G = iv_initial['G'][n]
+        T = iv_initial['T'][n]
 
         isc = np.max(i)
 
@@ -408,16 +389,10 @@ def get_corrected_IV_Pdyna (iv_initial : dict[float],
                     
     for n in range(nIV):
         
-        if nIV > 1:
-            i = iv_initial['i'][n]
-            v = iv_initial['v'][n]
-            G = iv_initial['G'][n]
-            T = iv_initial['T'][n]
-        else:
-            i = iv_initial['i']
-            v = iv_initial['v']
-            G = iv_initial['G']
-            T = iv_initial['T']
+        i = iv_initial['i'][n]
+        v = iv_initial['v'][n]
+        G = iv_initial['G'][n]
+        T = iv_initial['T'][n]
 
         try:
             rs = get_rs_sandia(v[i>0],i[i>0]) # dynamic rs
@@ -1197,14 +1172,8 @@ def plot_iv_raw(ivcurves : dict,
 
         color = cmap(k / nIV)  # Get color from colormap
 
-        if nIV == 1:
-            i = ivcurves['i']
-            v = ivcurves['v']
-            G = ivcurves['G']
-        else: 
-            i = ivcurves['i'][k]
-            v = ivcurves['v'][k]
-            G = ivcurves['G'][k]
+        i = ivcurves['i'][k]
+        v = ivcurves['v'][k]
 
         ax.plot(v, i, color = color, linewidth = lw)
         ax.set_xlim([0, 45])

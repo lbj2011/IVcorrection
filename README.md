@@ -12,9 +12,8 @@ This package provides the following purposes:
 
 **An interactive page for this tool will be online soon!**
 
-**The package is still under active development and plan to be integrated with [pvlib](https://github.com/pvlib/pvlib-python).**
- 
-**If there is any problem, please feel free to [contact us](mailto:baojieli@lbl.gov)!**
+**The package is still under active development.
+**If there is any problem, please feel free to [contact us](mailto:lbjxx2011@gmail.com)!**
 
 ## Installation
 

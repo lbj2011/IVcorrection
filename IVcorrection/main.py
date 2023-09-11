@@ -27,6 +27,8 @@ def simu_IV_curve(G : Union[list, float],
                 T : Union[list, float],
                 alpha_isc_abs : float,
                 SDMparams : dict,
+                rs_degra: float = None,
+                rsh_degra: float = None,
                 ivcurve_pnts : int =100,
                 singlediode_method : str ='lambertw'):
     
@@ -52,6 +54,12 @@ def simu_IV_curve(G : Union[list, float],
                     The product of the usual diode ideality factor (n, unitless),
                     number of cells in series (Ns), and cell thermal voltage at
                     specified effective irradiance and cell temperature.
+    rs_degra: float [ohms]
+        To simulate IV curves under Rs degradation, 
+        rs_degra is an additional resistance in series to the PV module
+    rsh_degra: float [ohms]
+        To simulate IV curves under Rsh degradation, 
+        rsh_degra is an additional resistance in paralle to the PV module
     ivcurve_pnts : int 
         Number of points in the desired IV curve. If None or 0, no IV curves will be produced.
     singlediode_method : str
@@ -76,6 +84,12 @@ def simu_IV_curve(G : Union[list, float],
 
     Eg_ref = 1.121
     dEgdT = -0.0002677
+
+    # update rs when rs_degra exits
+    R_s = SDMparams['R_s']
+
+    if rs_degra:
+        R_s = SDMparams['R_s'] + rs_degra
     
     iph, io, rs, rsh, nNsVth = calcparams_desoto(
                                 G,
@@ -85,7 +99,7 @@ def simu_IV_curve(G : Union[list, float],
                                 I_L_ref = SDMparams['I_L_ref'],
                                 I_o_ref = SDMparams['I_o_ref'],
                                 R_sh_ref = SDMparams['R_sh_ref'],
-                                R_s = SDMparams['R_s'],
+                                R_s = R_s,
                                 EgRef=Eg_ref,
                                 dEgdT=dEgdT,
                                 irrad_ref=irradiance_STC,
@@ -111,9 +125,15 @@ def simu_IV_curve(G : Union[list, float],
 
     nIV = G.size
 
-    for i in range(nIV):
-        alli[i] = out['i'][i]
-        allv[i] = out['v'][i]
+    for n in range(nIV):
+        i = out['i'][n]
+        v = out['v'][n]
+
+        # update current when rsh_degra exits
+        if rsh_degra:
+            i = i - v/rsh_degra
+        alli[n] = i
+        allv[n] = v
 
     ivcurves['G'] = G
     ivcurves['T'] = T
@@ -490,7 +510,7 @@ def get_rs_coef(SDMparams : dict,
     if correction_method is None:
         raise ValueError('Correction method must be "P1" or "P2"')
 
-    rs_range = np.arange(0.1, 0.7, 0.01)
+    rs_range = np.arange(0.1, 2, 0.01)
 
     rs_results = {}
     rs_results['rs'] = rs_range

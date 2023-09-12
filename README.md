@@ -38,6 +38,9 @@ The calculation proceeds with the following steps:
 An example is provided in [Example_IV_correction_CEC.ipynb](https://github.com/lbj2011/IVcorrection/tree/main/examples/Example_IV_correction_CEC.ipynb).
 <img src="https://github.com/lbj2011/IVcorrection/blob/main/doc_img/example.png" width="700"/>
 
+## Interactive online tool
+The video shows how to use this online tool:
+https://github.com/lbj2011/IVcorrection/blob/main/assets/IV_correction_webpage_demo.mp4
 
 ## Who we are
 We are a collection of national lab researchers funded under the Durable module materials consortium (DuraMAT).

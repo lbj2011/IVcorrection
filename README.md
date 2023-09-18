@@ -10,7 +10,7 @@ This package provides the following purposes:
  - Calculate IV curve correction coefficients based on IEC 60891:2021 standard
  - Perform IV curve correction
 
-**An interactive page for this tool will be online soon!**
+**An [interactive page](https://pvtools.lbl.gov/iv-curve-correction-tool) for IV curve correction is online!**
 
 **The package is still under active development.**
 **If there is any problem, please feel free to [contact us](mailto:lbjxx2011@gmail.com)!**
@@ -25,8 +25,17 @@ pip install ivcorrection
 ## What is I-V curve correction
 I-V curve correction refers to correct the I-V curve measured under different environmental condition to an identical one. Generally, the standard test condition (STC) is adopted as the target condition.
 
+## Interactive online page
+An interactive page is available: [https://pvtools.lbl.gov/iv-curve-correction-tool](https://pvtools.lbl.gov/iv-curve-correction-tool)
+
+The video shows how to use this online page:
+
+
+https://github.com/lbj2011/IVcorrection/assets/10723402/3ed13b8f-644b-4345-9147-159d9da7aeb0
+
 ## Correction methods
 This tool can perform I-V curve correction using **Procedure 1, 2, 4 of IEC 60891:2021 [1]** and a **proposed Procedure dynamic**. The determination of correction coefficients follow the IEC 60891:2021 standard [1].
+
 
 ## How to use this tool
 The calculation proceeds with the following steps:
@@ -37,14 +46,6 @@ The calculation proceeds with the following steps:
 
 An example is provided in [Example_IV_correction_CEC.ipynb](https://github.com/lbj2011/IVcorrection/tree/main/examples/Example_IV_correction_CEC.ipynb).
 <img src="https://github.com/lbj2011/IVcorrection/blob/main/doc_img/example.png" width="700"/>
-
-## Interactive online tool
-The video shows how to use this online tool:
-
-
-https://github.com/lbj2011/IVcorrection/assets/10723402/3ed13b8f-644b-4345-9147-159d9da7aeb0
-
-
 
 ## Who we are
 We are a collection of national lab researchers funded under the Durable module materials consortium (DuraMAT).

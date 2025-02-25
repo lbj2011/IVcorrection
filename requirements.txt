@@ -1,0 +1,8 @@
+
+pvlib== 0.11.0
+vocmax==1.0.4
+numpy>=2.2.0
+pandas>=2.2.0
+matplotlib>=3.10.0
+scipy>=1.15.2
+typing-extensions>=4.12.0

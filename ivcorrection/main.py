@@ -230,9 +230,9 @@ def get_corrected_IV_P2 (iv_initial : dict,
         Dict including the 'v', 'i' of the I-V curves to correct, 
         and G, T where the I-V curve is measured under
     alpha_isc_rel : float
-        Relative temperature coefficient of short circuit current [A/%]
+        Relative temperature coefficient of short circuit current [%/C]
     beta_voc_rel : float
-        Relative temperature coefficient of open circuit voltage [V/%]
+        Relative temperature coefficient of open circuit voltage [%/C]
     voc_ref : float
         Open-circuit voltage at STC [V]
     rs : float 
@@ -378,9 +378,9 @@ def get_corrected_IV_Pdyna (iv_initial : dict,
         Dict including the 'v', 'i' of the I-V curves to correct, 
         and 'G', 'T' where the I-V curve is measured under
     alpha_isc_rel : float
-        Relative temperature coefficient of short circuit current [A/%]
+        Relative temperature coefficient of short circuit current [%/C]
     beta_voc_rel : float
-        Relative temperature coefficient of open circuit voltage [V/%]
+        Relative temperature coefficient of open circuit voltage [%/C]
     voc_ref : float
         Open-circuit voltage at STC [V]
     rs : float 
@@ -484,9 +484,9 @@ def get_rs_coef(SDMparams : dict,
     beta_voc_abs : float
         Absolute temperature coefficient of open circuit voltage [V/C]
     alpha_isc_rel : float
-        Relative temperature coefficient of short circuit current [A/%]
+        Relative temperature coefficient of short circuit current [%/C]
     beta_voc_rel : float
-        Relative temperature coefficient of open circuit voltage [V/%]
+        Relative temperature coefficient of open circuit voltage [%/C]
     voc_ref : float
         Open-circuit voltage at STC [V]
     B1 : float 
@@ -580,9 +580,9 @@ def get_k_coef(SDMparams : dict,
     beta_voc_abs : float
         Absolute temperature coefficient of open circuit voltage [V/C]
     alpha_isc_rel : float
-        Relative temperature coefficient of short circuit current [A/%]
+        Relative temperature coefficient of short circuit current [%/C]
     beta_voc_rel : float
-        Relative temperature coefficient of open circuit voltage [V/%]
+        Relative temperature coefficient of open circuit voltage [%/C]
     voc_ref : float
         Open-circuit voltage at STC [V]
     B1 : float 
@@ -820,9 +820,9 @@ def get_P2_coefs(alpha_isc_abs : float,
     alpha_isc_abs : float
         Absolute temperature coefficient of short-circuit current (A/C)
     alpha_isc_rel : float
-        Relative temperature coefficient of short circuit current [A/%]
+        Relative temperature coefficient of short circuit current [%/C]
     beta_voc_rel : float
-        Relative temperature coefficient of open circuit voltage [V/%]
+        Relative temperature coefficient of open circuit voltage [%/C]
     voc_ref : float
         Open-circuit voltage at STC [V]
     SDMparams: dict

@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="ivcorrection",
-    version="0.1.0",
+    version="0.1.1",
     author="baojieli",
     author_email="lbjxx2011@gmail.com",
     description="IV curve correction toolkit",
